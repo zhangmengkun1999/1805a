@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zmk.mapper.StudentMapper">
+	<select id="selall" parameterType="map" resultType="com.zmk.bean.Student">
+		select s.*,c.cname FROM student s,classes c
+		where s.cid=c.cid
+	</select>
+	
+	<select id="selc" resultType="com.zmk.bean.Classes">
+		select * from classes
+	</select>
+	
+	<delete id="del" parameterType="com.zmk.bean.Student">
+		delete from student where sid=#{sid}
+	</delete>
+</mapper>
